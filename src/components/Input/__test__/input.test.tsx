@@ -1,11 +1,13 @@
-import { render } from "@testing-library/react-native";
+import { render, screen } from "@testing-library/react-native";
 
 import { Input } from "@components/Input";
 
 describe("Component: Input", () => {
-  it("should be able to render without activity indicator", () => {
-    const { debug } = render(<Input isLoading />);
+  it("should be able to render without activity indicator if isLoading props is undefined", () => {
+    render(<Input />);
 
-    debug();
+    const activityIndicator = screen.queryByTestId("input-activity-indicator");
+
+    expect(activityIndicator).toBeNull();
   });
 });
