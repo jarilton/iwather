@@ -8,6 +8,17 @@ describe("Context: CityContext", () => {
       wrapper: CityProvider,
     });
 
-    await waitFor(() => act(() => console.log(result)));
+    await waitFor(() =>
+      act(() =>
+        result.current.handleChanceCity({
+          id: "1",
+          name: "São Paulo",
+          latitude: -23.5489,
+          longitude: -46.6388,
+        })
+      )
+    );
+
+    expect(result.current.city?.name).toBe("São Paulo");
   });
 });
