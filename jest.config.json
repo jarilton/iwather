@@ -7,5 +7,10 @@
   "setupFiles": [
     "./__tests__/mocks/libs/async-storage.js",
     "./__tests__/mocks/libs/react-native-safe-area-context.js"
-  ]
+  ],
+  "transform": {
+    "^.+\\.js$": "babel-jest"
+  },
+  "collectCoverageFrom": ["*./src/**/*.{ts,tsx}"],
+  "coveragePathIgnorePatterns": ["./src/@types"]
 }
